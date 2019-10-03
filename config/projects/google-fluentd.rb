@@ -41,6 +41,8 @@ when "linux"
     else
       runtime_dependency "redhat-lsb-core"
     end
+  when "sles"
+    runtime_dependency "lsb-release"
   end
 end
 
