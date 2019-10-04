@@ -41,7 +41,7 @@ when "linux"
     else
       runtime_dependency "redhat-lsb-core"
     end
-  when "sles" or "suse"
+  when "suse"
     runtime_dependency "lsb-release"
     runtime_dependency "insserv-compat"
   end
