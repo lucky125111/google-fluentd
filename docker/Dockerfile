@@ -26,6 +26,8 @@ RUN apt-get update \
     && /opt/google-fluentd/embedded/bin/gem list fluent-plugin-google-cloud | sed 's/^fluent-plugin-google-cloud (\(.*\))$/FLUENT_PLUGIN_GOOGLE_CLOUD_VERSION=\1/' >> /VERSION \
     # If any additional gems need to be installed, it should happen before the
     # image cleanup.
+    && /opt/google-fluentd/embedded/bin/gem uninstall fluent-plugin-kubernetes_metadata_filter \
+    && /opt/google-fluentd/embedded/bin/gem install -y fluent-plugin-kubernetes_metadata_filter -v 2.4.1 \
     # ==> INSTALL_ADDITIONAL_GEMS_HERE_IF_NEEDED <==
     # Clean up to reduce image size.
     && apt-get purge -y \
